@@ -458,9 +458,9 @@
       }
     },
     {
-      "id": "All_Cabs_Extended_sink",
-      "name": "All Cabs Extended sink",
-      "description": "Sink from All_Cabs_Extended",
+      "id": "All_Cabs_Extended_s3_sink",
+      "name": "All Cabs Extended s3_sink",
+      "description": "",
       "type": "sink",
       "sink": {
         "input": {
@@ -469,26 +469,27 @@
         },
         "output": [
           {
-            "big_query": {
-              "credentials": {
-                "json_key": ""
+            "s3": {
+              "container": {
+                "bucket": "ascend-io-prod-training",
+                "credentials": {
+                  "id": "AKIAI4BYUHF7QMQCQRNQ",
+                  "secret": ""
+                }
               },
-              "dataset": "training",
-              "gcs_store": {
-                "container": {
-                  "bucket": "ascend-io-prod-training",
-                  "credentials": {
-                    "json_key": ""
-                  }
-                },
-                "object_prefix": "bigquery_load_all_cabs"
-              },
-              "project": "ascend-io-prod-training",
-              "table": "all_cabs"
+              "object_prefix": "dev_to_prod_all_cabs"
             }
           }
         ],
-        "formatter": {}
+        "formatter": {
+          "xsv": {
+            "delimiter": ",",
+            "include_header": true,
+            "line_ending": {
+              "lf": {}
+            }
+          }
+        }
       }
     }
   ]
