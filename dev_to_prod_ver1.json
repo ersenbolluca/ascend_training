@@ -1,7 +1,7 @@
 {
   "project": {
-    "id": "_Dev_to_Prod__Export_Graph_Exercise",
-    "name": "[Dev to Prod] Export Graph Exercise",
+    "id": "Dev_to_Prod_Exercise_1",
+    "name": "Dev to Prod Exercise 1",
     "description": ""
   },
   "svsConfigs": [
@@ -21,7 +21,7 @@
                   "secret": ""
                 },
                 "pattern": {
-                  "regex": "^demo_data/nyc_taxi/green_cab/2016-0[11|12]/$*"
+                  "glob": "demo_data/nyc_taxi/green_cab/2016-01/*"
                 }
               }
             }
@@ -35,7 +35,7 @@
                 "map": {
                   "field": [
                     {
-                     name": "VendorID",
+                      "name": "VendorID",
                       "schema": {
                         "int": {}
                       }
@@ -239,7 +239,7 @@
                   "secret": ""
                 },
                 "pattern": {
-                  "regex": "^demo_data/nyc_taxi/yellow_cab/2016-0[11|12]/$*"
+                  "glob": "demo_data/nyc_taxi/yellow_cab/2016-01/*"
                 }
               }
             }
@@ -477,7 +477,7 @@
                   "secret": ""
                 }
               },
-              "object_prefix": "dev_to_prod/prod_all_cabs"
+              "object_prefix": "dev_to_prod_exercises/dev_all_cabs"
             }
           }
         ],
