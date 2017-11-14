@@ -21,7 +21,7 @@
                   "secret": ""
                 },
                 "pattern": {
-                  "glob": "demo_data/nyc_taxi/green_cab/2016-01/*"
+                  "regex": "^demo_data/nyc_taxi/green_cab/2016-0[11|12]/$*"
                 }
               }
             }
@@ -35,7 +35,7 @@
                 "map": {
                   "field": [
                     {
-                      "name": "VendorID",
+                     name": "VendorID",
                       "schema": {
                         "int": {}
                       }
@@ -239,7 +239,7 @@
                   "secret": ""
                 },
                 "pattern": {
-                  "glob": "demo_data/nyc_taxi/yellow_cab/2016-01/*"
+                  "regex": "^demo_data/nyc_taxi/yellow_cab/2016-0[11|12]/$*"
                 }
               }
             }
@@ -465,7 +465,7 @@
       "sink": {
         "input": {
           "type": "view",
-          "id": "All_Cabs_Extended"
+          "id": "Ver1_All_Cabs_Extended"
         },
         "output": [
           {
@@ -477,7 +477,7 @@
                   "secret": ""
                 }
               },
-              "object_prefix": "dev_to_prod_all_cabs"
+              "object_prefix": "dev_to_prod/prod_all_cabs"
             }
           }
         ],
