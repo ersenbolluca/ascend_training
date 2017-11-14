@@ -1,0 +1,495 @@
+{
+  "project": {
+    "id": "_Dev_to_Prod__Export_Graph_Exercise",
+    "name": "[Dev to Prod] Export Graph Exercise",
+    "description": ""
+  },
+  "svsConfigs": [
+    {
+      "id": "Green_Cab",
+      "name": "Green Cab",
+      "description": "",
+      "type": "source",
+      "source": {
+        "files": {
+          "inputs": [
+            {
+              "s3": {
+                "bucket": "ascend-io-prod-training",
+                "credentials": {
+                  "id": "AKIAI4BYUHF7QMQCQRNQ",
+                  "secret": ""
+                },
+                "pattern": {
+                  "glob": "demo_data/nyc_taxi/green_cab/2016-01/*"
+                }
+              }
+            }
+          ],
+          "parser": {
+            "xsv": {
+              "delimiter": ",",
+              "header_line_count": 1,
+              "headers_to_columns": {},
+              "schema": {
+                "map": {
+                  "field": [
+                    {
+                      "name": "VendorID",
+                      "schema": {
+                        "int": {}
+                      }
+                    },
+                    {
+                      "name": "lpep_pickup_datetime",
+                      "schema": {
+                        "string": {}
+                      }
+                    },
+                    {
+                      "name": "Lpep_dropoff_datetime",
+                      "schema": {
+                        "string": {}
+                      }
+                    },
+                    {
+                      "name": "Store_and_fwd_flag",
+                      "schema": {
+                        "string": {}
+                      }
+                    },
+                    {
+                      "name": "RateCodeID",
+                      "schema": {
+                        "int": {}
+                      }
+                    },
+                    {
+                      "name": "Pickup_longitude",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "Pickup_latitude",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "Dropoff_longitude",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "Dropoff_latitude",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "Passenger_count",
+                      "schema": {
+                        "int": {}
+                      }
+                    },
+                    {
+                      "name": "Trip_distance",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "Fare_amount",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "Extra",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "MTA_tax",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "Tip_amount",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "Tolls_amount",
+                      "schema": {
+                        "int": {}
+                      }
+                    },
+                    {
+                      "name": "Ehail_fee",
+                      "schema": {
+                        "string": {}
+                      }
+                    },
+                    {
+                      "name": "improvement_surcharge",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "Total_amount",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "Payment_type",
+                      "schema": {
+                        "int": {}
+                      }
+                    },
+                    {
+                      "name": "Trip_type",
+                      "schema": {
+                        "int": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "Weather",
+      "name": "Weather",
+      "description": "",
+      "type": "source",
+      "source": {
+        "files": {
+          "inputs": [
+            {
+              "s3": {
+                "bucket": "ascend-io-prod-training",
+                "credentials": {
+                  "id": "AKIAI4BYUHF7QMQCQRNQ",
+                  "secret": ""
+                },
+                "pattern": {
+                  "glob": "demo_data/weather/*.csv"
+                }
+              }
+            }
+          ],
+          "parser": {
+            "xsv": {
+              "delimiter": ",",
+              "header_line_count": 1,
+              "headers_to_columns": {},
+              "schema": {
+                "map": {
+                  "field": [
+                    {
+                      "name": "Date",
+                      "schema": {
+                        "string": {}
+                      }
+                    },
+                    {
+                      "name": "Weather",
+                      "schema": {
+                        "string": {}
+                      }
+                    },
+                    {
+                      "name": "Precipitation",
+                      "schema": {
+                        "double": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "Yellow_Cab",
+      "name": "Yellow Cab",
+      "description": "",
+      "type": "source",
+      "source": {
+        "files": {
+          "inputs": [
+            {
+              "s3": {
+                "bucket": "ascend-io-prod-training",
+                "credentials": {
+                  "id": "AKIAI4BYUHF7QMQCQRNQ",
+                  "secret": ""
+                },
+                "pattern": {
+                  "glob": "demo_data/nyc_taxi/yellow_cab/2016-01/*"
+                }
+              }
+            }
+          ],
+          "parser": {
+            "xsv": {
+              "delimiter": ",",
+              "header_line_count": 1,
+              "headers_to_columns": {},
+              "schema": {
+                "map": {
+                  "field": [
+                    {
+                      "name": "VendorID",
+                      "schema": {
+                        "int": {}
+                      }
+                    },
+                    {
+                      "name": "tpep_pickup_datetime",
+                      "schema": {
+                        "timestamp": {}
+                      }
+                    },
+                    {
+                      "name": "tpep_dropoff_datetime",
+                      "schema": {
+                        "timestamp": {}
+                      }
+                    },
+                    {
+                      "name": "passenger_count",
+                      "schema": {
+                        "int": {}
+                      }
+                    },
+                    {
+                      "name": "trip_distance",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "pickup_longitude",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "pickup_latitude",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "RatecodeID",
+                      "schema": {
+                        "int": {}
+                      }
+                    },
+                    {
+                      "name": "store_and_fwd_flag",
+                      "schema": {
+                        "string": {}
+                      }
+                    },
+                    {
+                      "name": "dropoff_longitude",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "dropoff_latitude",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "payment_type",
+                      "schema": {
+                        "int": {}
+                      }
+                    },
+                    {
+                      "name": "fare_amount",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "extra",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "mta_tax",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "tip_amount",
+                      "schema": {
+                        "int": {}
+                      }
+                    },
+                    {
+                      "name": "tolls_amount",
+                      "schema": {
+                        "int": {}
+                      }
+                    },
+                    {
+                      "name": "improvement_surcharge",
+                      "schema": {
+                        "float": {}
+                      }
+                    },
+                    {
+                      "name": "total_amount",
+                      "schema": {
+                        "float": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "All_Cabs",
+      "name": "All Cabs",
+      "description": "",
+      "type": "view",
+      "inputs": [
+        {
+          "type": "view",
+          "id": "_Clean__Green_Cab"
+        },
+        {
+          "type": "view",
+          "id": "_Clean__Yellow_Cab"
+        }
+      ],
+      "view": {
+        "sql": "SELECT *\nFROM ${0} , ${1} "
+      }
+    },
+    {
+      "id": "Ver1_All_Cabs_Extended",
+      "name": "[Ver1] All Cabs Extended",
+      "description": "",
+      "type": "view",
+      "inputs": [
+        {
+          "type": "view",
+          "id": "All_Cabs"
+        },
+        {
+          "type": "view",
+          "id": "_Clean__Weather"
+        }
+      ],
+      "view": {
+        "sql": "SELECT combined.VendorID, \ncombined.pickup_datetime, \ncombined.dropoff_datetime, \ncombined.ratecodeID, \ncombined.passenger_count, \ncombined.trip_distance, \ncombined.fare_amount, \ncombined.mta_tax, \ncombined.tip_amount, \ncombined.tolls_amount, \ncombined.improvement_surcharge, \ncombined.total_amount, \ncombined.payment_type, \ncombined.cab_type, \ncombined.pickup_date, \nweather.weather_date, \nweather.Weather, \nweather.Precipitation\nFROM ${0} AS combined\nleft join ${1} AS weather\n ON combined.pickup_date = weather.weather_date_ts"
+      }
+    },
+    {
+      "id": "_Clean__Green_Cab",
+      "name": "[Clean] Green Cab",
+      "description": "",
+      "type": "view",
+      "inputs": [
+        {
+          "type": "source",
+          "id": "Green_Cab"
+        }
+      ],
+      "view": {
+        "sql": "SELECT gg.VendorID, PARSE_TIMESTAMP(\"%F %X\", gg.lpep_pickup_datetime) AS pickup_datetime, PARSE_TIMESTAMP(\"%F %X\", gg.Lpep_dropoff_datetime) AS dropoff_datetime, gg.RateCodeID AS ratecodeID, gg.Passenger_count AS passenger_count, gg.Trip_distance AS trip_distance, gg.Fare_amount AS fare_amount, gg.MTA_tax AS mta_tax, gg.Tip_amount AS tip_amount, gg.Tolls_amount AS tolls_amount, gg.improvement_surcharge AS improvement_surcharge, gg.Total_amount AS total_amount, gg.Payment_type AS payment_type, \"green\" AS cab_type, TIMESTAMP(SUBSTR(gg.lpep_pickup_datetime,1,10)) AS pickup_date\nFROM ${0} AS gg"
+      }
+    },
+    {
+      "id": "_Clean__Weather",
+      "name": "[Clean] Weather",
+      "description": "",
+      "type": "view",
+      "inputs": [
+        {
+          "type": "source",
+          "id": "Weather"
+        }
+      ],
+      "view": {
+        "sql": "SELECT SUBSTR(ww.Date,1,10) AS weather_date, ww.Weather, ww.Precipitation, PARSE_TIMESTAMP(\"%F\",ww.Date) AS weather_date_ts\nFROM ${0} AS ww\nWHERE ww.Precipitation < 5"
+      }
+    },
+    {
+      "id": "_Clean__Yellow_Cab",
+      "name": "[Clean] Yellow Cab",
+      "description": "",
+      "type": "view",
+      "inputs": [
+        {
+          "type": "source",
+          "id": "Yellow_Cab"
+        }
+      ],
+      "view": {
+        "sql": "SELECT gg.VendorID, gg.tpep_pickup_datetime AS pickup_datetime, gg.tpep_dropoff_datetime AS dropoff_datetime, gg.RatecodeID, gg.passenger_count, gg.trip_distance, gg.fare_amount, gg.mta_tax, gg.tip_amount, gg.tolls_amount, gg.improvement_surcharge, gg.total_amount, gg.payment_type, \"yellow\" AS cab_type, TIMESTAMP_TRUNC(gg.tpep_pickup_datetime, DAY) AS pickup_date\nFROM ${0} AS gg\nWHERE gg.trip_distance > 0"
+      }
+    },
+    {
+      "id": "All_Cabs_Extended_sink",
+      "name": "All Cabs Extended sink",
+      "description": "Sink from All_Cabs_Extended",
+      "type": "sink",
+      "sink": {
+        "input": {
+          "type": "view",
+          "id": "All_Cabs_Extended"
+        },
+        "output": [
+          {
+            "big_query": {
+              "credentials": {
+                "json_key": ""
+              },
+              "dataset": "training",
+              "gcs_store": {
+                "container": {
+                  "bucket": "ascend-io-prod-training",
+                  "credentials": {
+                    "json_key": ""
+                  }
+                },
+                "object_prefix": "bigquery_load_all_cabs"
+              },
+              "project": "ascend-io-prod-training",
+              "table": "all_cabs"
+            }
+          }
+        ],
+        "formatter": {}
+      }
+    }
+  ]
+}
