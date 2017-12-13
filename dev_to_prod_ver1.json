@@ -477,7 +477,7 @@
                   "secret": ""
                 }
               },
-              "object_prefix": "dev_to_prod_exercises/student_dev_all_cabs"
+              "object_prefix": "dev_to_prod_exercises/dev_all_cabs"
             }
           }
         ],
