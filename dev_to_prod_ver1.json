@@ -127,7 +127,7 @@
                     {
                       "name": "Tolls_amount",
                       "schema": {
-                        "int": {}
+                        "float": {}
                       }
                     },
                     {
@@ -157,7 +157,7 @@
                     {
                       "name": "Trip_type",
                       "schema": {
-                        "int": {}
+                        "string": {}
                       }
                     }
                   ]
@@ -212,7 +212,7 @@
                     {
                       "name": "Precipitation",
                       "schema": {
-                        "double": {}
+                        "string": {}
                       }
                     }
                   ]
@@ -345,13 +345,13 @@
                     {
                       "name": "tip_amount",
                       "schema": {
-                        "int": {}
+                        "float": {}
                       }
                     },
                     {
                       "name": "tolls_amount",
                       "schema": {
-                        "int": {}
+                        "float": {}
                       }
                     },
                     {
@@ -439,7 +439,7 @@
         }
       ],
       "view": {
-        "sql": "SELECT SUBSTR(ww.Date,1,10) AS weather_date, ww.Weather, ww.Precipitation, PARSE_TIMESTAMP(\"%F\",ww.Date) AS weather_date_ts\nFROM ${0} AS ww\nWHERE ww.Precipitation < 5"
+        "sql": "SELECT SUBSTR(ww.Date,1,10) AS weather_date, ww.Weather, ww.Precipitation, PARSE_TIMESTAMP(\"%F\",ww.Date) AS weather_date_ts\nFROM ${0} AS ww\nWHERE SAFE_CAST(ww.Precipitation AS FLOAT64) < 5"
       }
     },
     {
